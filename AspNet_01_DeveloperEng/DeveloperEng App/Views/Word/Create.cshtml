@@ -1,0 +1,92 @@
+﻿@model Word
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/DashboardLayout/Index.cshtml";
+}
+
+<div class="d-flex flex-row justify-content-between mb-3 text-center">
+    <h4 class="page-title">Create Word</h4>
+
+    <div class="d-flex justify-content-center align-items-center">
+
+        @if (TempData["message"] != null)
+        {
+            <span id="message" class="text-light badge badge-sm" style="margin-right: 10px; margin-top:-12px; font-weight:bold; background-color:darkviolet;">@TempData["message"]</span>
+        }
+
+        <a href="/Word" class="btn btn-dark text-center" style="font-weight: bold; border-radius:12px;">Words List</a>
+
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="border-radius:20px;">
+
+            <div class="card-body">
+
+                <form method="Post" action="/Word/Create">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="Title">Word</label>
+                                <input type="text" class="form-control input-pill" style="border-radius:12px;" asp-for="WordName" placeholder="Enter Word" required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="Company">Meaning</label>
+                                <input type="text" class="form-control input-pill" asp-for="Meaning" placeholder="Enter Meaning" required />
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="Date">Synonyms</label>
+                                <input type="text" class="form-control input-pill" asp-for="Synonyms" placeholder="Enter Synonyms">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="Date">Antonyms</label>
+                                <input type="text" class="form-control input-pill" asp-for="Antonyms" placeholder="Enter Antonyms">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Description">Example</label>
+                        <textarea class="form-control input-pill" rows="4" asp-for="Example"></textarea>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-between mb-3 text-center">
+                        <h4 class="page-title"></h4>
+                        <button type="submit" class="btn btn-dark btn-rounded fw-bold text-center" style="height:30px; font-weight:bold;">Create Word</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
